@@ -82,6 +82,8 @@
 
 
         <img id="sky_sphere-texture" src="textures/sky_sphere.jpg">
+        <img id="authors-titles" src="img/author_titles.png">
+        <img id="nyu-logo" src="img/nyu_logo.jpg.png">
 
         <!-- <a-sound src="audio/84529__cmusounddesign__02-museum.ogg"
                  autoplay="true"
@@ -203,13 +205,14 @@
       <!-- history of altered realities -->
       <a-entity id="greg" obj-model="obj: #greg-obj; mtl: #greg-mtl" position="-6 1.6 -1.6"  scale="1.5 1.5 1.5"></a-entity>
       <a-entity id="jake" obj-model="obj: #jake-obj; mtl: #jake-mtl" position="-3 1.650 -1.6" scale="1.5 1.5 1.5"></a-entity>
-      <a-entity id="authors" position="-4.5 2.5 -1.99" rotation="0 0 0" geometry="primitive: plane; height: 1.8; width: 2.6"   material="flatShading:true;color:#2600ff;"></a-entity>
+      <a-plane id="authors" src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0" geometry="height: 1.8; width: 2.6" material="flatShading: true; color:#ffffff; src: #authors-titles;"></a-plane>
+
+      <a-plane id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0" geometry="height: 1.8; width: 2.6" material="flatShading: true; color:#ffffff; src: #nyu-logo "></a-plane>
       <!-- <a-entity position="-8.5 1.1 0" geometry="mergeTo:null" id="waypoint_W9" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity> -->
       <!-- end history of altered realities -->
 
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
-
     </a-scene>
 
     <script src="main.js"></script>
