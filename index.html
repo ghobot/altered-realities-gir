@@ -36,7 +36,8 @@
     <script src="js/ctm_component.js"></script>
     <script src="js/mobile_component.js"></script>
     <script src="js/slidedeck_component.js"></script>
-  
+    <script src="js/href_component.js"></script>
+    <script src="js/frame-text-geometry-component.min.js"></script>
 
   </head>
 
@@ -59,11 +60,10 @@
         </div>
       </div>
     </div>
-
     
     <!--<a-scene stats>-->
     <div id="presentation-nav"></div>
-    <a-scene>
+    <a-scene stats>
 
       <a-entity mobile></a-entity>
 
@@ -73,28 +73,19 @@
       <!-- Custom components with animations -->
       <a-entity spheres material="shader: envMapMaterial; src:textures/cube/hall/; "></a-entity>
 
-
       <!-- - Custom components with animations -->
 
       <a-assets>
+        <a-mixin id="image-plane" geometry="height: 1.8; width: 2.6;" ></a-mixin>
+        <a-mixin id="purple" material="flatShading:true; color:#2600ff"></a-mixin> 
         <a-mixin id="checkpoint"></a-mixin>
         <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
-
 
         <img id="sky_sphere-texture" src="textures/sky_sphere.jpg">
         <img id="authors-titles" src="img/author_titles.png">
         <img id="nyu-logo" src="img/nyu_logo.jpg.png">
-
-        <!-- <a-sound src="audio/84529__cmusounddesign__02-museum.ogg"
-                 autoplay="true"
-                 loop="true"
-                 position="1 1 0"></a-sound>
-
-        <a-sound src="audio/219462__cediez__musee-victoria-londres-grand-escalier.ogg"
-                 autoplay="true"
-                 loop="true"
-                 position="1 1 10"></a-sound> -->
-
+        <img id="nyu_courtyard" src="img/courtyard.png">
+        <img id="innovation_room" src="img/innovation.jpg">
 
         <!-- floor -->
         <a-asset-item id="floor-obj" src="models/floor.obj"></a-asset-item>
@@ -157,6 +148,26 @@
         <a-asset-item id="greg-mtl" src="models/greg_model_mesh.obj.mtl"></a-asset-item>
         <a-asset-item id="jake-obj" src="models/jake_model_mesh.obj"></a-asset-item>
         <a-asset-item id="jake-mtl" src="models/jake_model_mesh.obj.mtl"></a-asset-item>
+        
+        <!-- liver with holes -->
+        <a-asset-item id="liver-holes-obj" src="models/liver-with-holes/source/liver with holes cropped 2.obj"></a-asset-item>
+        <a-asset-item id="liver-holes-mtl" src="models/liver-with-holes/source/liver with holes cropped 2.mtl"></a-asset-item>
+
+        <!-- liver -->
+        <a-asset-item id="liver-obj" src="models/liver/source/liver_model_mesh.obj"></a-asset-item>
+        <a-asset-item id="liver-mtl" src="models/liver/source/liver_model_mesh.obj.mtl"></a-asset-item>
+
+        <!-- videos -->
+        
+        <video id="tilt_brush" autoplay loop="true" src="video/tilt_brush_heart.mp4"></video>
+        
+        <!-- fonts -->
+        <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+
+        <!-- mitral valve -->
+        <!-- <a-asset-item id="mitral_valve_obj" src="models/mitral_valve/mitral_valve.obj"></a-asset-item>
+        <a-asset-item id="mitral_valve_mtl" src="models/mitral_valve/mitral_valve.mtl"></a-asset-item>  -->
+        <!-- images -->
 
       </a-assets>
 
@@ -176,45 +187,73 @@
       <a-entity ctm="src: #monk_uv-ctm; name:monk_uv;"></a-entity> 
       
       <!-- hallway North which is scanning and 3D content creation, 360 video, photo, structure photogrammetry, Aframe, Unity, Unreal-->
-      <a-entity position="0 1.1 -13.5" geometry="mergeTo:null" id="waypoint_N9" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
+      <a-entity position="0 1.1 -13.5" geometry="mergeTo:null" id="waypoint_N9" material="flatShading:true;color:#2600ff}"></a-entity>
 
       <!-- hallway south which is VR technology, demos, experiments-->
       
-      <!-- VR Slides -->
-      <a-entity position="0 2 13.9" rotation="180 0 0" geometry="primitive: plane; height: 1.8; width: 2.6" id="waypoint_S9"  material="flatShading:true;color:#2600ff;"></a-entity>
-      <!-- end VR Slides -->
+      <!-- Tilt brush video -->
+      <!-- <a-plane position="0 2 13.9" rotation="180 0 0" height="1.8" width="2.6" id="waypoint_S9"  material="flatShading:true;color:#2600ff;"></a-plane> -->
 
-      <a-entity position="3 1.1 4" geometry="mergeTo:null" id="waypoint_S1" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="3 1.1 6.75" geometry="mergeTo:null" id="waypoint_S2" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="3 1.1 9.25" geometry="mergeTo:null" id="waypoint_S3" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="3 1.1 12" geometry="mergeTo:null" id="waypoint_S4" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
+      <a-video id="tilt_brush_video" src="#tilt_brush" rotation="0 180 0" height="1.46" width="2.6" position="0 2 13.9"></a-video>
 
-      <a-entity position="-3 1.1 4" geometry="mergeTo:null" id="waypoint_S5" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="-3 1.1 6.75" geometry="mergeTo:null" id="waypoint_S6" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="-3 1.1 9.25" geometry="mergeTo:null" id="waypoint_S7" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
-      <a-entity position="-3 1.1 12" geometry="mergeTo:null" id="waypoint_S8" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
+      <!-- end tilt brush video -->
+
+      <a-obj-model id="liver-holes" src="#liver-holes-obj" mtl="#liver-holes-mtl" position="2.68 2.0 5.7"  scale=".25 .25 .25" rotation="-90 0 0"></a-obj-model>
+
+     <!--  <a-entity position="3 1.1 9.25" geometry="mergeTo:null" id="waypoint_S3" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity> -->
+
+     <a-obj-model id="liver" src="#liver-obj" mtl="#liver-mtl" position="3.1 1 9.1"  scale="3 3 3 " rotation="-60 0 90"></a-obj-model>
+
+      <!-- <a-entity position="3 1.1 12" geometry="mergeTo:null" id="waypoint_S4" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
+ -->
+      <!-- <a-obj-model id="mitral_valve" src="#mitral_valve_obj" mtl="#mitral_valve_mtl" position="3.1 1 9.1" scale="2.5 2.5 2.5 " rotation="-60 0 90"></a-obj-model> -->
+
+
+      <a-entity position="-3 1.8 4" rotation="0 90 0">
+         <a-plane src="#nyu_courtyard" href="courtyard.html" target="_blank" id="courtyard"  height="1.8" width="2.2"></a-plane>
+         <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Photo; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;"
+                  material="shader: flat; color: white"></a-entity>
+      </a-entity>
+
+      <a-entity position="-3 1.8 6.75" rotation="0 90 0">
+      <a-plane  src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room"  height="1.8" width="2.2"></a-plane>
+      <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;"
+                  material="shader: flat; color: white"></a-entity>
+    </a-entity>
+
+      <a-plane mixin="purple" position="-3 1.8 9.25" id="waypoint_S7" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
+      <a-plane mixin="purple" position="-3 1.8 12"  id="waypoint_S8" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
       
       <!-- hallway East which is for AR VR interventions in the classroom-->
       <!-- intervention slides -->
 
-      <a-entity position="8.5 1.1 0" geometry="mergeTo:null" id="waypoint_E9" material="
-      flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity>
+      <a-entity position="8.5 1.1 0" geometry="mergeTo:null" id="waypoint_E9"></a-entity>
       <!-- end intervention slides -->
 
       <!-- hallway West history of the technology and background-->
       <!-- history of altered realities -->
-      <a-entity id="greg" obj-model="obj: #greg-obj; mtl: #greg-mtl" position="-6 1.6 -1.6"  scale="1.5 1.5 1.5"></a-entity>
-      <a-entity id="jake" obj-model="obj: #jake-obj; mtl: #jake-mtl" position="-3 1.650 -1.6" scale="1.5 1.5 1.5"></a-entity>
-      <a-plane id="authors" src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0" geometry="height: 1.8; width: 2.6" material="flatShading: true; color:#ffffff; src: #authors-titles;"></a-plane>
+      <a-obj-model id="greg" src="#greg-obj" mtl="#greg-mtl" position="-6 1.6 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
+      <a-obj-model id="jake" src="#jake-obj" mtl="#jake-mtl" position="-3 1.650 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
+      
+      <a-plane mixin="image-plane" id="authors"  src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0"></a-plane>
+      <a-plane mixin="image-plane" id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0"></a-plane>
 
-      <a-plane id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0" geometry="height: 1.8; width: 2.6" material="flatShading: true; color:#ffffff; src: #nyu-logo "></a-plane>
       <!-- <a-entity position="-8.5 1.1 0" geometry="mergeTo:null" id="waypoint_W9" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity> -->
       <!-- end history of altered realities -->
 
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
+      <a-entity>
+      <a-camera look-controls wasd-controls rotation="0 90 0">
+        <a-entity position="0 0 -3"
+                geometry="primitive: ring; radiusOuter: 0.10;
+                          radiusInner: 0.05;"
+                material="color: cyan; shader: flat"
+                cursor="maxDistance: 10; fuse: false">
+      </a-entity>
+      </a-camera>
+    </a-entity>
     </a-scene>
-
     <script src="main.js"></script>
   </body>
 </html>
