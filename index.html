@@ -18,7 +18,7 @@
     <meta name="twitter:image" content="">
 
     <link rel="icon" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> -->
     <meta name="description" content="">
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -70,8 +70,6 @@
       <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="2 20 0"></a-entity>
       <a-entity light="type: ambient; color: #FFF"></a-entity>
 
-      
-
       <a-assets>
         <a-mixin id="image-plane" geometry="height: 1.8; width: 2.6;" ></a-mixin>
         <a-mixin id="purple" material="flatShading:true; color:#2600ff"></a-mixin> 
@@ -84,6 +82,8 @@
         <img id="nyu_courtyard" src="img/courtyard.png">
         <img id="innovation_room" src="img/innovation.jpg">
         <img id="empathy_machines" src="img/empathy_machines.png">
+        <img id="team" src="img/iime_team.png">
+
 
         <!-- floor -->
         <a-asset-item id="floor-obj" src="models/floor.obj"></a-asset-item>
@@ -160,13 +160,12 @@
         <video id="aframe" autoplay loop="true" src="video/aframe.mp4"></video>
         
         <!-- fonts -->
-        <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+        <a-asset-item id="exoItalicFont" src="fonts/blackfacetype.json"></a-asset-item>
 
         <!-- mitral valve -->
         <!-- <a-asset-item id="mitral_valve_obj" src="models/mitral_valve/mitral_valve.obj"></a-asset-item>
         <a-asset-item id="mitral_valve_mtl" src="models/mitral_valve/mitral_valve.mtl"></a-asset-item>  -->
         <!-- images -->
-
       </a-assets>
 
       <a-sky color="#EEEEFF" material="src: #sky_sphere-texture"></a-sky>
@@ -218,7 +217,7 @@
          <a-plane  src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room"  height="1.8" width="2.2"></a-plane>
          <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;"
                   material="shader: flat; color:#2600ff "></a-entity>
-    </a-entity>
+      </a-entity>
 
       <a-plane mixin="purple" position="-3 1.8 9.25" id="waypoint_S7" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
       <a-plane mixin="purple" position="-3 1.8 12"  id="waypoint_S8" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
@@ -243,6 +242,7 @@
       
       <a-plane mixin="image-plane" id="authors"  src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0"></a-plane>
       <a-plane mixin="image-plane" id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0"></a-plane>
+      <a-plane geometry="height: 1.4; width: 1.8" id="iime-team" src="#team" position="-3 1.95 1.9" rotation="0 180 0"></a-plane>
 
       <!-- <a-entity position="-8.5 1.1 0" geometry="mergeTo:null" id="waypoint_W9" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity> -->
       <!-- end history of altered realities -->
@@ -250,15 +250,15 @@
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
       <a-entity>
-      <a-camera look-controls wasd-controls rotation="0 90 0">
-        <a-entity position="0 0 -3"
-                geometry="primitive: ring; radiusOuter: 0.10;
-                          radiusInner: 0.05;"
-                material="color: cyan; shader: flat"
-                cursor="maxDistance: 10; fuse: false">
+        <a-camera look-controls wasd-controls rotation="0 90 0">
+          <a-entity position="0 0 -3"
+                  geometry="primitive: ring; radiusOuter: 0.10;
+                            radiusInner: 0.05;"
+                  material="color: cyan; shader: flat"
+                  cursor="maxDistance: 10; fuse: false">
+          </a-entity>
+        </a-camera>
       </a-entity>
-      </a-camera>
-    </a-entity>
     </a-scene>
     <script src="main.js"></script>
   </body>

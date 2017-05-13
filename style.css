@@ -31,7 +31,7 @@ a:link, a:hover, a:visited, a:active {
 .info{
 	font-family: Arial;
 	position:absolute;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -47,8 +47,12 @@ a:link, a:hover, a:visited, a:active {
 
 }
 
+.info, .info p, .info a {
+color: black;
+}
+
 .info .company{
-    font-size: 2em;
+    font-size: 1.3em;
 }
 
 .info .title{

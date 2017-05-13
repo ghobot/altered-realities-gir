@@ -16,28 +16,30 @@ startExperienteBtn.onclick = function () {
         buttonElNext.innerHTML = nextText;
 
         var wrapper = document.getElementById("presentation-nav");
-        //wrapper.appendChild(buttonElPrevious);
+        wrapper.appendChild(buttonElPrevious);
         wrapper.appendChild(buttonElNext);
 
         document.body.appendChild(wrapper);
 
-        var camHeight = 1.600;
+        const camHeight = 1.600;
         var slidePositions = [
-
-            
-            {x: -4.600 , y: camHeight, z: 0.264},
-            {x: -5.536 , y: camHeight, z: 0},
-            {x: -0.900 , y: camHeight, z: 3.931},
-            {x: -0.900 , y: camHeight, z: 6.970},
-            
+            {x:  0.000 , y: camHeight, z: 0.000}, // origin
+            {x: -4.600 , y: camHeight, z: 0.264}, // busts
+            {x: -5.536 , y: camHeight, z: 0}, // slideshow
+            {x: -0.900 , y: camHeight, z: 3.931}, // 360 photo
+            {x: -0.900 , y: camHeight, z: 6.970}, // 360 video
+            {x:  0.500 , y: camHeight, z: 7.947}, // livers
+            {x:  0.000 , y: camHeight, z: 11.600}, // Tilt Brush             
         ]; 
 
         var slideRotations = [
-            {x:-3.209 , y:0 , z:0},
+            {x:0 , y: 90 , z:0}, 
+            {x:0 , y:0 , z:0}, 
+            {x:0 , y:90 , z:0}, 
             {x:0 , y:90 , z:0},
             {x:0 , y:90 , z:0},
-            {x:0 , y:90 , z:0},
-            
+            {x:0 , y:-90 , z:0},
+            {x:0 , y:180 , z:0},            
         ]
 
         console.log("slidedeck started");
@@ -46,30 +48,33 @@ startExperienteBtn.onclick = function () {
 
         buttonElNext.onclick = function () {
         	
-            document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
-            currentLoc++;
-
-            if (currentLoc == spotNum) {
-                currentLoc = 0;
+            if (currentLoc > spotNum-1) {
+                currentLoc = -1;
             }
 
-            console.log("currentloc = " + currentLoc);
-        	
-        };
-        // buttonElPrevious.onclick = function () {
-            
-        //     currentLoc--;
-        //     document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-        //     document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
+            currentLoc++;
+            document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
+            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
             
 
-        //     if (currentLoc < 0) {
-        //         currentLoc = 0;
-        //     }
-        //     console.log("currentloc = " + currentLoc);
+           console.log("currentloc = " + currentLoc);
+        	
+        };
+        buttonElPrevious.onclick = function () {
             
-        // };
+            currentLoc--;            
+            document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
+            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
+            
+
+            if (currentLoc < 0) {
+                currentLoc = spotNum-1;
+                document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
+                document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
+            }
+            console.log("currentloc = " + currentLoc);
+            
+        };
 
     }
 };
