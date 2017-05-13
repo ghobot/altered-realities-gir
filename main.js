@@ -1,10 +1,24 @@
 var startExperienteBtn = document.getElementById('start_experience');
 var currentLoc = 0;
-//var e=this.el.sceneEl.camera.el; //grab the scenes camera
 
 startExperienteBtn.onclick = function () {
     document.getElementById('container').outerHTML = '';
     document.getElementsByTagName('a-scene')[0].style.zIndex = '1';
+
+    /* add camera to to desktop scene*/
+    if ( !AFRAME.utils.checkHeadsetConnected() ) {
+
+        var camera_div = document.getElementById('desktop_camera');
+        var camera = document.createElement('a-entity');
+
+        var cameraHTML  = '<a-camera look-controls wasd-controls rotation="0 90 0">';
+            cameraHTML += '<a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.10;radiusInner: 0.05;"material="color: cyan; shader: flat"cursor="maxDistance: 10; fuse: false"></a-entity>';
+            cameraHTML += '</a-camera>';        
+        
+        camera.innerHTML = cameraHTML;
+
+        camera_div.appendChild( camera );
+    }
 
      /* Add slidedeck controls if on desktop*/
     if ( !AFRAME.utils.checkHeadsetConnected() ) {
@@ -30,9 +44,7 @@ startExperienteBtn.onclick = function () {
             {x: -0.900 , y: camHeight, z: 6.970}, // 360 video
             {x:  0.500 , y: camHeight, z: 7.947}, // livers
             {x:  0.000 , y: camHeight, z: 11.600}, // Tilt Brush             
-        ]; 
-
-        var slideRotations = [
+        ], slideRotations = [
             {x:0 , y: 90 , z:0}, 
             {x:0 , y:0 , z:0}, 
             {x:0 , y:90 , z:0}, 
@@ -43,38 +55,30 @@ startExperienteBtn.onclick = function () {
         ]
 
         console.log("slidedeck started");
-
         var spotNum = slidePositions.length;
 
-        buttonElNext.onclick = function () {
-        	
+        buttonElNext.onclick = function () {        	
             if (currentLoc > spotNum-1) {
                 currentLoc = -1;
             }
-
             currentLoc++;
             document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
-            
-
-           console.log("currentloc = " + currentLoc);
-        	
+            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);            
+            console.log("currentloc = " + currentLoc);        	
         };
+        
         buttonElPrevious.onclick = function () {
             
             currentLoc--;            
             document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
             document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
             
-
             if (currentLoc < 0) {
                 currentLoc = spotNum-1;
                 document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
                 document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
             }
-            console.log("currentloc = " + currentLoc);
-            
+            console.log("currentloc = " + currentLoc);            
         };
-
     }
 };

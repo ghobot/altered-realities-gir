@@ -249,16 +249,7 @@
 
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
-      <a-entity>
-        <a-camera look-controls wasd-controls rotation="0 90 0">
-          <a-entity position="0 0 -3"
-                  geometry="primitive: ring; radiusOuter: 0.10;
-                            radiusInner: 0.05;"
-                  material="color: cyan; shader: flat"
-                  cursor="maxDistance: 10; fuse: false">
-          </a-entity>
-        </a-camera>
-      </a-entity>
+      <a-entity id="desktop_camera"></a-entity>
     </a-scene>
     <script src="main.js"></script>
   </body>
