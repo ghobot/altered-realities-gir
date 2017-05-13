@@ -1,4 +1,6 @@
-# The Hall VR
+# GIR 2017 Digital Demo forked from the Hall VR Demo by Cecropia Solutions. This was used to demonstrate the power of webVR and how accessible it is using Mozilla's Aframe. It also showcases some of the work we have done at NYU Langone School of Medicine with VR and AR. For more info visit our [Innovation Room Blog}(https://ghobot.github.io/blog). 
+
+## The Hall VR
 
 
 ![hallvr1](/screenshots/thehall1.jpg)
