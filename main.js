@@ -12,9 +12,9 @@ startExperienteBtn.onclick = function () {
         var camera = document.createElement('a-entity');
 
         var cameraHTML  = '<a-camera look-controls wasd-controls rotation="0 90 0">';
-            cameraHTML += '<a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.10;radiusInner: 0.05;" material="color: cyan; shader: flat" cursor raycaster="far: 10; interval: 500; objects: .scan">';
+            cameraHTML += '<a-entity position="0 0 -2" material.color="#00FFFF" geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;" material="color: #00FFFF; shader: flat" cursor raycaster="far: 10; interval: 1000; objects: .scan">';
             cameraHTML += '<a-animation begin="mouseenter" easing="ease-in" attribute="scale" fill="backwards" to="0.1 0.1 0.1" from="1 1 1"></a-animation>';
-            cameraHTML += '<a-animation begin="mouseenter" easing="ease-in" attribute="material.color" fill="backwards" from="cyan" to="red" dur="500"></a-animation>';
+            cameraHTML += '<a-animation begin="mouseenter" easing="ease-in" attribute="material.color" fill="backwards" from="#00FFFF" to="#FF0000" dur="500"></a-animation>';
             cameraHTML += '</a-entity>';
             cameraHTML += '</a-camera>';        
         
