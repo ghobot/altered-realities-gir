@@ -25,10 +25,11 @@
     <script src="js/mobile_component.js"></script>
     <script src="js/href_component.js"></script>
     <script src="js/frame-text-geometry-component.min.js"></script>
+<!--    <script src="js/aframe-event-set-component.min.js"></script>-->
   </head>
   <body>
     <!-- 8.5, -8.5 position down corridors -->
-
+  
     <div id="container" class="container">
       <div class="info">
         <div class="company"><a href="https://med.nyu.edu/institute-innovations-medical-education/" target="_blank">NYU Langone Medical Center Institute for Innovations in Medical Education</a></div>
@@ -132,13 +133,13 @@
 
       <!-- 360 photo -->
       <a-entity position="-3 1.8 4" rotation="0 90 0">
-         <a-plane src="#nyu_courtyard" href="courtyard.html" target="_blank" id="courtyard"  height="1.8" width="2.2"></a-plane>
+         <a-plane src="#nyu_courtyard" href="courtyard.html" target="_blank" id="courtyard" class="scan" height="1.8" width="2.2"></a-plane>
          <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Photo; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color: #2600ff"></a-entity>
       </a-entity>
 
       <!-- 360 video -->
       <a-entity position="-3 1.8 6.75" rotation="0 90 0">
-         <a-plane  src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room"  height="1.8" width="2.2"></a-plane>
+         <a-plane src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room" class="scan" height="1.8" width="2.2"></a-plane>
          <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:#2600ff "></a-entity>
       </a-entity>
 
@@ -153,13 +154,13 @@
       <a-entity position="8.5 1.1 0" geometry="mergeTo:null" id="waypoint_E9"></a-entity>
 
       <!-- slide deck and iime info -->
-      <a-plane id="deck" src="#empathy_machines" href="https://docs.google.com/presentation/d/1FpOVSdFUALhmzED10z29iLNojW6g2TIUL3MJbKjPSsg/present" target="_blank" position="-8.5 2.1 0" rotation="0 90 0" height="1.8" width="2.6"></a-plane>
+      <a-plane id="deck" class="scan" src="#empathy_machines" href="https://docs.google.com/presentation/d/1FpOVSdFUALhmzED10z29iLNojW6g2TIUL3MJbKjPSsg/present" target="_blank" position="-8.5 2.1 0" rotation="0 90 0" height="1.8" width="2.6"></a-plane>
 
-      <a-obj-model id="greg" src="#greg-obj" mtl="#greg-mtl" position="-6 1.6 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
-      <a-obj-model id="jake" src="#jake-obj" mtl="#jake-mtl" position="-3 1.650 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
+      <a-obj-model id="greg" class="scan" src="#greg-obj" mtl="#greg-mtl" position="-6 1.6 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
+      <a-obj-model id="jake" class="scan" src="#jake-obj" mtl="#jake-mtl" position="-3 1.650 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
       
-      <a-plane mixin="image-plane" id="authors"  src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0"></a-plane>
-      <a-plane mixin="image-plane" id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0"></a-plane>
+      <a-plane mixin="image-plane" class="scan" id="authors"  src="#authors-titles" position="-4.5 2.5 -1.99" rotation="0 0 0"></a-plane>
+      <a-plane mixin="image-plane" class="scan" id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0"></a-plane>
       <a-plane geometry="height: 1.4; width: 1.8" id="iime-team" src="#team" position="-3 1.95 1.9" rotation="0 180 0"></a-plane>
 
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>

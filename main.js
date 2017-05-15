@@ -6,13 +6,13 @@ startExperienteBtn.onclick = function () {
     document.getElementsByTagName('a-scene')[0].style.zIndex = '1';
 
     /* add camera to to desktop scene*/
-    if ( !AFRAME.utils.checkHeadsetConnected() ) {
+    if ( !AFRAME.utils.device.checkHeadsetConnected() ) {
 
         var camera_div = document.getElementById('desktop_camera');
         var camera = document.createElement('a-entity');
 
         var cameraHTML  = '<a-camera look-controls wasd-controls rotation="0 90 0">';
-            cameraHTML += '<a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.10;radiusInner: 0.05;"material="color: cyan; shader: flat"cursor="maxDistance: 10; fuse: false"></a-entity>';
+            cameraHTML += '<a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.10;radiusInner: 0.05;"material="color: cyan; shader: flat" cursor="far: 10; fuse: false; interval: 1000; objects: .scan"></a-entity>';
             cameraHTML += '</a-camera>';        
         
         camera.innerHTML = cameraHTML;
@@ -20,7 +20,7 @@ startExperienteBtn.onclick = function () {
     }
 
      /* Add slidedeck controls if on desktop*/
-    if ( !AFRAME.utils.checkHeadsetConnected() ) {
+    if ( !AFRAME.utils.device.checkHeadsetConnected() ) {
         var buttonElPrevious = document.createElement('button'), buttonElNext = document.createElement('button'), slideStatus = document.createElement("span");;
         buttonElPrevious.className += "slideButton";
         buttonElNext.className += "slideButton";
