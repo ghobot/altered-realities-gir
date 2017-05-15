@@ -16,22 +16,22 @@ startExperienteBtn.onclick = function () {
             cameraHTML += '</a-camera>';        
         
         camera.innerHTML = cameraHTML;
-
         camera_div.appendChild( camera );
     }
 
      /* Add slidedeck controls if on desktop*/
     if ( !AFRAME.utils.checkHeadsetConnected() ) {
-        var buttonElPrevious = document.createElement('button'), buttonElNext = document.createElement('button');
-        var nextText = "Next", previousText = "Previous";
+        var buttonElPrevious = document.createElement('button'), buttonElNext = document.createElement('button'), slideStatus = document.createElement("span");;
         buttonElPrevious.className += "slideButton";
         buttonElNext.className += "slideButton";
-        buttonElPrevious.innerHTML = previousText;
-        buttonElNext.innerHTML = nextText;
-
+        buttonElPrevious.innerHTML = "Previous";
+        buttonElNext.innerHTML = "Next";
+        slideStatus.className += "slideStatus";
+             
         var wrapper = document.getElementById("presentation-nav");
         wrapper.appendChild(buttonElPrevious);
         wrapper.appendChild(buttonElNext);
+        
 
         document.body.appendChild(wrapper);
 
@@ -54,30 +54,36 @@ startExperienteBtn.onclick = function () {
             {x:0 , y:180 , z:0},            
         ]
 
-        console.log("slidedeck started");
+        
         var spotNum = slidePositions.length;
+        var updateStatus = function() {
+            slideStatus.innerHTML = currentLoc+1 + " / " + spotNum
+        };
 
+        var next = function() {
+             if ( currentLoc < spotNum-1 ) { currentLoc++; }
+             updateStatus();
+        }
+
+        var previous = function() {
+             if ( currentLoc ) { currentLoc--; }
+             updateStatus();
+        }
+
+        updateStatus();
+        document.body.appendChild(slideStatus);
+        
         buttonElNext.onclick = function () {        	
-            if (currentLoc > spotNum-1) {
-                currentLoc = -1;
-            }
-            currentLoc++;
+            next();
             document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
             document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);            
             console.log("currentloc = " + currentLoc);        	
         };
         
-        buttonElPrevious.onclick = function () {
-            
-            currentLoc--;            
+        buttonElPrevious.onclick = function () {         
+            previous();
             document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
             document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
-            
-            if (currentLoc < 0) {
-                currentLoc = spotNum-1;
-                document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-                document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
-            }
             console.log("currentloc = " + currentLoc);            
         };
     }

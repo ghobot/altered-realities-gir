@@ -4,45 +4,29 @@
     <meta charset="utf-8">
     <title>Altered Realities in Medical Education</title>
 
-
     <meta property="og:title" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <meta property="og:description" content="" />
-
     <meta name="twitter:card" content="">
-
     <meta name="twitter:title" content="">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
     <link rel="icon" href="favicon.png">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> -->
     <meta name="description" content="">
-
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script src="js/aframe.0.5.0.min.js"></script>
     <script src="js/aframe-extras.min.js"></script>
-
-    <script src="js/lzma.js"></script>
-    <script src="js/ctm.js"></script>
-    <script src="js/CTMLoader.js"></script>
-
     <script src="js/aframe-teleport-controls.min.js"></script>
-    <script src="js/spheres_anim.js"></script>
     <script src="js/envMapMaterial.js"></script>
-    <script src="js/ctm_component.js"></script>
     <script src="js/mobile_component.js"></script>
-    <script src="js/slidedeck_component.js"></script>
     <script src="js/href_component.js"></script>
     <script src="js/frame-text-geometry-component.min.js"></script>
-
   </head>
-
   <body>
-
     <!-- 8.5, -8.5 position down corridors -->
 
     <div id="container" class="container">
@@ -60,13 +44,9 @@
         </div>
       </div>
     </div>
-    
-    <!--<a-scene stats>-->
     <div id="presentation-nav"></div>
     <a-scene>
-
       <a-entity mobile></a-entity>
-
       <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="2 20 0"></a-entity>
       <a-entity light="type: ambient; color: #FFF"></a-entity>
 
@@ -84,58 +64,31 @@
         <img id="empathy_machines" src="img/empathy_machines.png">
         <img id="team" src="img/iime_team.png">
 
-
         <!-- floor -->
         <a-asset-item id="floor-obj" src="models/floor.obj"></a-asset-item>
         <img id="floor-texture" src="textures/floor.jpg">
         <img id="floor_normal-texture" src="textures/floor_normal.jpg">
-        <!-- - floor -->
 
         <!-- hall -->
         <a-asset-item id="hall-obj" src="models/hall.obj"></a-asset-item>
         <img id="hall-texture" src="textures/hall_reset.jpg">
-        <!-- - hall -->
 
         <!-- hall low floor -->
         <!-- this piece is only meant for teleportation -->
         <a-asset-item id="hall_low_floor-obj" src="models/hall_low_floor.obj"></a-asset-item>
 
-        <!-- - hall low floor-->
-
         <!-- moonlight painting-->
         <a-asset-item id="moonlight-obj" src="models/moonlight.obj"></a-asset-item>
         <img id="moonlight-texture" src="textures/moonlight.jpg">
-        <!-- - moonlight -->
+  
 
         <!-- podiums -->
         <a-asset-item id="podiums-obj" src="models/podiums.obj"></a-asset-item>
         <img id="podiums-texture" src="textures/podiums.jpg">
-        <!-- - podiums -->
-
+  
         <!-- lamps -->
         <a-asset-item id="lamps-obj" src="models/lamps.obj"></a-asset-item>
         <img id="lamps-texture" src="textures/lamps.jpg">
-        <!-- - lamps -->
-
-        <!-- greek_bust -->      
-        <a-asset-item id="greek_bust-ctm" src="models/greek_bust.ctm"></a-asset-item>
-        <!-- - greek_bust -->
-
-        <!-- old_man -->
-        <a-asset-item id="old_man-ctm" src="models/old_man.ctm"></a-asset-item>
-        <!-- - old_man -->
-
-        <!-- nefertiti -->
-        <a-asset-item id="nefertiti-ctm" src="models/nefertiti.ctm"></a-asset-item>
-        <!-- - nefertiti -->
-
-        <!-- female_helmet -->
-        <a-asset-item id="female_helmet-ctm" src="models/female_helmet.ctm"></a-asset-item>
-        <!-- - female_helmet -->
-
-        <!-- monk_uv -->
-        <a-asset-item id="monk_uv-ctm" src="models/monk_uv.ctm"></a-asset-item>
-        <!-- - monk_uv -->
 
         <!-- greg and jake -->
         <a-asset-item id="greg-obj" src="models/greg_model_mesh.obj"></a-asset-item>
@@ -151,21 +104,12 @@
         <a-asset-item id="liver-obj" src="models/liver/source/liver_model_mesh.obj"></a-asset-item>
         <a-asset-item id="liver-mtl" src="models/liver/source/liver_model_mesh.obj.mtl"></a-asset-item>
 
-        <!-- mitral valve -->
-        <!-- <a-asset-item id="mitral_rings" src="models/mitral_rings.obj"></a-asset-item> -->
-
-        <!-- videos -->
-        
+        <!-- videos -->        
         <video id="tilt_brush" autoplay loop="true" src="video/tilt_brush_heart.mp4"></video>
         <video id="aframe" autoplay loop="true" src="video/aframe.mp4"></video>
-        
+    
         <!-- fonts -->
         <a-asset-item id="exoItalicFont" src="fonts/blackfacetype.json"></a-asset-item>
-
-        <!-- mitral valve -->
-        <!-- <a-asset-item id="mitral_valve_obj" src="models/mitral_valve/mitral_valve.obj"></a-asset-item>
-        <a-asset-item id="mitral_valve_mtl" src="models/mitral_valve/mitral_valve.mtl"></a-asset-item>  -->
-        <!-- images -->
       </a-assets>
 
       <a-sky color="#EEEEFF" material="src: #sky_sphere-texture"></a-sky>
@@ -176,65 +120,39 @@
       <a-entity obj-model="obj: #moonlight-obj;" material="src: #moonlight-texture"></a-entity>
       <a-entity obj-model="obj: #podiums-obj;" material="src: #podiums-texture"></a-entity>
       <a-entity obj-model="obj: #lamps-obj;" material="src: #lamps-texture; side: double;"></a-entity>
-      <!-- <a-entity ctm="src: #lion-ctm; name:lion;"></a-entity> -->
-      <a-entity ctm="src: #greek_bust-ctm; name:greek_bust;"></a-entity>
-      <a-entity ctm="src: #old_man-ctm; name:old_man;"></a-entity>
-      <a-entity ctm="src: #nefertiti-ctm; name:nefertiti;"></a-entity>
-      <a-entity ctm="src: #female_helmet-ctm; name:female_helmet;"></a-entity>
-      <a-entity ctm="src: #monk_uv-ctm; name:monk_uv;"></a-entity> 
-      
-      <!-- hallway North which is scanning and 3D content creation, 360 video, photo, structure photogrammetry, Aframe, Unity, Unreal, and tech-->
-      
-      <!-- <a-entity position="0 1.1 -13.5" geometry="mergeTo:null" id="waypoint_N9" material="flatShading:true;color:#2600ff}"></a-entity> -->
-
-      <!-- hallway south which is VR technology, demos, experiments-->
       
       <!-- Tilt brush video -->
       <a-video id="tilt_brush_video" src="#tilt_brush" rotation="0 180 0" height="1.46" width="2.6" position="0 2 13.9"></a-video>
-      <!-- end tilt brush video -->
 
       <!-- liver with holes -->
       <a-obj-model id="liver-holes" src="#liver-holes-obj" mtl="#liver-holes-mtl" position="2.68 2.0 5.7"  scale=".25 .25 .25" rotation="-90 0 0"></a-obj-model>
-      <!-- end liver with holes -->
       
       <!-- normal liver -->
       <a-obj-model id="liver" src="#liver-obj" mtl="#liver-mtl" position="3.1 1 9.1"  scale="3 3 3 " rotation="-60 0 90"></a-obj-model>
-      <!-- normal liver ends -->
-      
-      <!-- mitral with rings  -->
-      <!-- <a-obj-model id="mitral_rings" src="#mitral_rings" position="3.1 1 9.1"  scale="3 3 3 " rotation="-60 0 90"></a-obj-model>
- -->
-      <!-- end mitral with rings  -->
-      <!-- <a-obj-model id="mitral_valve" src="#mitral_valve_obj" mtl="#mitral_valve_mtl" position="3.1 1 9.1" scale="2.5 2.5 2.5 " rotation="-60 0 90"></a-obj-model> -->
 
+      <!-- 360 photo -->
       <a-entity position="-3 1.8 4" rotation="0 90 0">
          <a-plane src="#nyu_courtyard" href="courtyard.html" target="_blank" id="courtyard"  height="1.8" width="2.2"></a-plane>
-         <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Photo; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;"
-                  material="shader: flat; color: #2600ff"></a-entity>
+         <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Photo; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color: #2600ff"></a-entity>
       </a-entity>
 
+      <!-- 360 video -->
       <a-entity position="-3 1.8 6.75" rotation="0 90 0">
          <a-plane  src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room"  height="1.8" width="2.2"></a-plane>
-         <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;"
-                  material="shader: flat; color:#2600ff "></a-entity>
+         <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:#2600ff "></a-entity>
       </a-entity>
 
+      <!-- placeholders -->
       <a-plane mixin="purple" position="-3 1.8 9.25" id="waypoint_S7" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
       <a-plane mixin="purple" position="-3 1.8 12"  id="waypoint_S8" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
       
-      <!-- hallway East which is for AR VR interventions in the classroom-->
-      <!-- intervention slides -->
       <!-- aframe video -->
       <a-video id="aframe_video" src="#aframe" rotation="0 0 0" height="2" width="2" position="5.3 1.99 1.96"></a-video>
       <!-- end aframe video -->
 
       <a-entity position="8.5 1.1 0" geometry="mergeTo:null" id="waypoint_E9"></a-entity>
-      <!-- end intervention slides -->
 
-      <!-- hallway West history of the technology and background-->
-      
-
-      <!-- history of altered realities -->
+      <!-- slide deck and iime info -->
       <a-plane id="deck" src="#empathy_machines" href="https://docs.google.com/presentation/d/1FpOVSdFUALhmzED10z29iLNojW6g2TIUL3MJbKjPSsg/present" target="_blank" position="-8.5 2.1 0" rotation="0 90 0" height="1.8" width="2.6"></a-plane>
 
       <a-obj-model id="greg" src="#greg-obj" mtl="#greg-mtl" position="-6 1.6 -1.6" scale="1.5 1.5 1.5"></a-obj-model>
@@ -244,9 +162,6 @@
       <a-plane mixin="image-plane" id="nyu" src="#nyu-logo" position="-5.7 1.95 1.9" rotation="0 180 0"></a-plane>
       <a-plane geometry="height: 1.4; width: 1.8" id="iime-team" src="#team" position="-3 1.95 1.9" rotation="0 180 0"></a-plane>
 
-      <!-- <a-entity position="-8.5 1.1 0" geometry="mergeTo:null" id="waypoint_W9" material="flatShading:true;color:#2600ff;normalScale:{"x":1,"y":1}"></a-entity> -->
-      <!-- end history of altered realities -->
-
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
       <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
       <a-entity id="desktop_camera"></a-entity>
@@ -254,3 +169,4 @@
     <script src="main.js"></script>
   </body>
 </html>
+  

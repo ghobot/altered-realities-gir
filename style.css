@@ -98,6 +98,19 @@ color: black;
   margin-right: 3rem;
 }
 
+.slideStatus{
+    margin-left: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    background-color: rgba(0,0,0,.5);
+    padding: 10px;
+    font-weight: 400;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
 @media (max-width: 600px) {
     .info {
       width: 60%
