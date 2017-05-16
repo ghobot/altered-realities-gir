@@ -21,15 +21,12 @@
     <script src="js/aframe.0.5.0.min.js"></script>
     <script src="js/aframe-extras.min.js"></script>
     <script src="js/aframe-teleport-controls.min.js"></script>
-    <script src="js/envMapMaterial.js"></script>
     <script src="js/mobile_component.js"></script>
     <script src="js/href_component.js"></script>
     <script src="js/frame-text-geometry-component.min.js"></script>
-<!--    <script src="js/aframe-event-set-component.min.js"></script>-->
+
   </head>
   <body>
-    <!-- 8.5, -8.5 position down corridors -->
-  
     <div id="container" class="container">
       <div class="info">
         <div class="company"><a href="https://med.nyu.edu/institute-innovations-medical-education/" target="_blank">NYU Langone Medical Center Institute for Innovations in Medical Education</a></div>
@@ -38,9 +35,9 @@
         <div class="instructions">
           <p>Welcome to the Digital Demonstration of Altered Realities in Medical Education. This is a fork of an Aframe WebVR demo by <a href="http://www.cecropiasolutions.com" target="_blank">cecropiasolutions.com</a>.</p>
           <div class="instructions">
-            <div><strong>VR</strong>: Hand controllers and teleport with trigger.</div>
-            <div><strong>Desktop</strong>: Keyboard (WASD/arrows) and mouse.</div>
-            <div><strong>Mobile</strong>: Gaze cursor and teleportation.</div>
+            <div><strong>VR</strong>: Use Hand controllers and teleport with trigger.</div>
+            <div><strong>Desktop</strong>: Use the Keyboard (WASD keys /arrows) and mouse.</div>
+            <div><strong>Mobile</strong>: Use the Gaze cursor and teleportation.</div>
           </div>
         </div>
       </div>
@@ -78,11 +75,6 @@
         <!-- this piece is only meant for teleportation -->
         <a-asset-item id="hall_low_floor-obj" src="models/hall_low_floor.obj"></a-asset-item>
 
-        <!-- moonlight painting-->
-        <a-asset-item id="moonlight-obj" src="models/moonlight.obj"></a-asset-item>
-        <img id="moonlight-texture" src="textures/moonlight.jpg">
-  
-
         <!-- podiums -->
         <a-asset-item id="podiums-obj" src="models/podiums.obj"></a-asset-item>
         <img id="podiums-texture" src="textures/podiums.jpg">
@@ -118,7 +110,6 @@
       <a-entity obj-model="obj: #floor-obj;" material="src: #floor-texture; normalMap: #floor_normal-texture; metalness: 0.6" id="floor"></a-entity>
       <a-entity obj-model="obj: #hall-obj;" material="src: #hall-texture" id="hall"></a-entity>
       <a-entity obj-model="obj: #hall_low_floor-obj;" material="opacity: 0.0" id="hall_low_floor"></a-entity>
-      <a-entity obj-model="obj: #moonlight-obj;" material="src: #moonlight-texture"></a-entity>
       <a-entity obj-model="obj: #podiums-obj;" material="src: #podiums-texture"></a-entity>
       <a-entity obj-model="obj: #lamps-obj;" material="src: #lamps-texture; side: double;"></a-entity>
       
@@ -142,16 +133,10 @@
          <a-plane src="#innovation_room" href="innovation_room.html" target="_blank" id="innovation_room" class="scan" height="1.8" width="2.2"></a-plane>
          <a-entity id="courtyard_text" position="-0.8 -1.2 0.5" scale="0.3 0.3 0.3" text-geometry="value: 360 Video; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:#2600ff "></a-entity>
       </a-entity>
-
-      <!-- placeholders -->
-      <a-plane mixin="purple" position="-3 1.8 9.25" id="waypoint_S7" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
-      <a-plane mixin="purple" position="-3 1.8 12"  id="waypoint_S8" rotation="0 90 0" height="1.8" width="2.2"></a-plane>
       
       <!-- aframe video -->
       <a-video id="aframe_video" src="#aframe" rotation="0 0 0" height="2" width="2" position="5.3 1.99 1.96"></a-video>
       <!-- end aframe video -->
-
-      <a-entity position="8.5 1.1 0" geometry="mergeTo:null" id="waypoint_E9"></a-entity>
 
       <!-- slide deck and iime info -->
       <a-plane id="deck" class="scan" src="#empathy_machines" href="https://docs.google.com/presentation/d/1FpOVSdFUALhmzED10z29iLNojW6g2TIUL3MJbKjPSsg/present" target="_blank" position="-8.5 2.1 0" rotation="0 90 0" height="1.8" width="2.6"></a-plane>

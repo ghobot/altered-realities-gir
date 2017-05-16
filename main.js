@@ -12,9 +12,9 @@ startExperienteBtn.onclick = function () {
         var camera = document.createElement('a-entity');
 
         var cameraHTML  = '<a-camera look-controls wasd-controls rotation="0 90 0">';
-            cameraHTML += '<a-entity position="0 0 -2" material.color="#00FFFF" geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;" material="color: #00FFFF; shader: flat" cursor raycaster="far: 10; interval: 1000; objects: .scan">';
-            cameraHTML += '<a-animation begin="mouseenter" easing="ease-in" attribute="scale" fill="backwards" to="0.1 0.1 0.1" from="1 1 1"></a-animation>';
-            cameraHTML += '<a-animation begin="mouseenter" easing="ease-in" attribute="material.color" fill="backwards" from="#00FFFF" to="#FF0000" dur="500"></a-animation>';
+            cameraHTML += '<a-entity position="0 0 -2" geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;" material="color: #00FFFF; shader: flat" cursor raycaster="far: 10; interval: 1000; objects: .scan">';
+            cameraHTML += '<a-animation begin="mouseenter" easing="ease-out" attribute="scale" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>';
+            cameraHTML += '<a-animation begin="mouseenter" easing="ease-out" attribute="material.color" fill="both" from="#FF0000" to="#00FFFF" dur="500"></a-animation>';
             cameraHTML += '</a-entity>';
             cameraHTML += '</a-camera>';        
         
@@ -35,6 +35,7 @@ startExperienteBtn.onclick = function () {
         wrapper.appendChild(buttonElPrevious);
         wrapper.appendChild(buttonElNext);
         
+
 
         document.body.appendChild(wrapper);
 
@@ -76,18 +77,25 @@ startExperienteBtn.onclick = function () {
         updateStatus();
         document.body.appendChild(slideStatus);
         
+        // var desktopCamParent = document.querySelector('#desktop_camera');
+        var desktopCam = document.querySelector('a-camera');
+
+            // desktopCam.setAttribute('checkpoint-controls', {
+            //   mode: 'animate',
+            // });
+
         buttonElNext.onclick = function () {        	
             next();
-            document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);            
-            console.log("currentloc = " + currentLoc);        	
+            desktopCam.setAttribute('position' , slidePositions[currentLoc]);
+            desktopCam.setAttribute('rotation' , slideRotations[currentLoc]);            
+           
         };
         
         buttonElPrevious.onclick = function () {         
             previous();
-            document.querySelector('a-camera').setAttribute('position' , slidePositions[currentLoc]);
-            document.querySelector('a-camera').setAttribute('rotation' , slideRotations[currentLoc]);
-            console.log("currentloc = " + currentLoc);            
+            desktopCam.setAttribute('position' , slidePositions[currentLoc]);
+            desktopCam.setAttribute('rotation' , slideRotations[currentLoc]);
+           
         };
     }
 };

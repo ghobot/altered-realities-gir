@@ -47,48 +47,14 @@ AFRAME.registerComponent('mobile', {
 
             const spotHeight = 0.0;
             const teleportSpots = [
-                {x: 6, y: spotHeight, z: 0},
-                {x: -6, y: spotHeight, z: 0},
-
-                {x: 6, y: spotHeight, z: -1},
-                {x: 3, y: spotHeight, z: -1},
-                {x: 0, y: spotHeight, z: -1},
-                {x: -3, y: spotHeight, z: -1},
-                {x: -6, y: spotHeight, z: -1},
-
-                {x: 6, y: spotHeight, z: 1},
-                {x: 3, y: spotHeight, z: 1},
-                {x: 0, y: spotHeight, z: 1},
-                {x: -3, y: spotHeight, z: 1},
-                {x: -6, y: spotHeight, z: 1},
-
-
-                /* Fractals hallway */
-                {x: 1, y: spotHeight, z: -4},
-                {x: 1, y: spotHeight, z: -6.7},
-                {x: 1, y: spotHeight, z: -9.4},
-                {x: 1, y: spotHeight, z: -12.1},
-
-                {x: 0, y: spotHeight, z: -13},
-
-                {x: -1, y: spotHeight, z: -4},
-                {x: -1, y: spotHeight, z: -6.7},
-                {x: -1, y: spotHeight, z: -9.4},
-                {x: -1, y: spotHeight, z: -12.1},
-
-                /* MOCAP hallway */
-                {x: 1, y: spotHeight, z: 4},
-                {x: 1, y: spotHeight, z: 6.7},
-                {x: 1, y: spotHeight, z: 9.4},
-                {x: 1, y: spotHeight, z: 12.1},
-
-                {x: 0, y: spotHeight, z: 13},
-
-                {x: -1, y: spotHeight, z: 4},
-                {x: -1, y: spotHeight, z: 6.7},
-                {x: -1, y: spotHeight, z: 9.4},
-                {x: -1, y: spotHeight, z: 12.1},
-
+                {x:  0.000 , y: spotHeight, z: 0.000}, // origin
+                {x: -4.600 , y: spotHeight, z: 0.264}, // busts
+                {x: -5.536 , y: spotHeight, z: 0}, // slideshow
+                {x: -0.900 , y: spotHeight, z: 3.931}, // 360 photo
+                {x: -0.900 , y: spotHeight, z: 6.970}, // 360 video
+                {x:  0.500 , y: spotHeight, z: 7.947}, // livers
+                {x:  0.000 , y: spotHeight, z: 11.600}, // Tilt Brush 
+                {x:  5.200 , y: spotHeight, z: 0.000}, // Aframe video
             ];
 
 
